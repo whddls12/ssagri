@@ -1,21 +1,20 @@
-// import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/navbar';
-import TradeMainPage from '../components/tradeMainPage.styles';
-import TradeMain from '../components/tradeMain';
+import {
+  TradeMainPageDiv,
+  TradeMain
+} from '../components/tradeMainPage.styles';
 
-const tradeMainPage = () => {
+const TradeMainPage = () => {
   //   const navigate = useNavigate();
-
   //   const goMain = () => {
   //     navigate('/main');
   //   };
-
   return (
-    <TradeMainPage>
+    <TradeMainPageDiv>
       <Navbar></Navbar>
       <TradeMain></TradeMain>
-    </TradeMainPage>
+    </TradeMainPageDiv>
   );
 };
 
-export default tradeMainPage;
+export default TradeMainPage;
