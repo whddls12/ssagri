@@ -1,0 +1,129 @@
+**`SAVEPOINT SV1`**
+
+- SAVEPOINT SV1을 설정합니다. SAVEPOINT는 트랜잭션 내에서 특정 지점으로 롤백할 때 사용됩니다.
+
+- **`COALESCE`** 함수는 여러 인수 중에서 첫 번째로 NULL이 아닌 값을 반환합니다.
+- **`DECODE`** 함수는 첫 번째 인수와 두 번째 인수를 비교하고, 일치하는 경우 세 번째 인수를 반환합니다.
+
+**`SELECT NULLIF ('AB','AB') FROM DUAL;`**
+
+- **`NULLIF`** 함수는 두 인수를 비교하고, 두 인수가 같으면 NULL을 반환하고 다르면 첫 번째 인수를 반환합니다.
+
+1. CHARACTER:
+    - CHARACTER(CHAR)는 고정 길이 문자열 데이터 타입을 나타냅니다. 즉, CHAR(n) 형태로 정의하면 항상 n개의 문자를 저장하는 컬럼을 생성합니다. 예를 들어, CHAR(10)은 항상 10개의 문자를 저장할 수 있는 컬럼을 의미합니다. CHAR 컬럼은 저장된 데이터가 지정된 길이보다 짧으면 나머지 공간을 공백으로 채웁니다. 예를 들어, "HELLO"를 CHAR(10) 컬럼에 저장하면 "HELLO "로 저장됩니다.
+2. VARCHAR:
+    - VARCHAR(Variable Character)는 가변 길이 문자열 데이터 타입을 나타냅니다. VARCHAR(n) 형태로 정의하면 최대 n개의 문자를 저장할 수 있는 컬럼을 생성하며, 실제 데이터의 길이에 따라 저장 공간이 조정됩니다. 따라서 VARCHAR 컬럼은 저장된 데이터의 길이에 따라 공간을 효율적으로 사용할 수 있습니다. 예를 들어, "HELLO"를 VARCHAR(10) 컬럼에 저장하면 "HELLO"만 저장됩니다.
+    
+    - **`UNION`** 연산자는 여러 집합을 합치고 중복된 행을 제거하여 결과 집합을 반환합니다. 중복된 행을 제거하기 위해 정렬 작업이 필요합니다.
+    - **`UNION ALL`** 연산자는 여러 집합을 합치지만 중복된 행을 제거하지 않고 모두 포함하는 집합을 반환합니다. 따라서 중복 제거를 위해 정렬 작업을 하지 않습니다.
+
+**Sort Merge Join**:
+
+- Sort Merge Join은 두 개의 테이블을 조인할 때 사용되는 방식 중 하나입니다.
+- 이 방식은 조인 조건에 따라 두 테이블을 정렬한 후, 정렬된 결과를 병합하는 방식으로 동작합니다.
+- 일반적으로 정렬 작업은 I/O 비용이 높기 때문에, 소량의 데이터를 조인할 때 효과적입니다. 정렬된 데이터를 병합하는 과정에서 일치하는 행을 찾습니다.
+
+**Hash Join**:
+
+- Hash Join은 큰 데이터 집합을 조인할 때 효과적인 방식 중 하나입니다.
+- 이 방식에서는 조인 조건에 따라 각 테이블을 해시 함수를 사용하여 해시 테이블로 변환합니다.
+- 그 후, 해시 테이블을 비교하여 일치하는 데이터를 찾습니다.
+- Hash Join은 메모리를 효율적으로 사용하며 대용량 데이터에 대한 조인에 적합합니다.
+
+**Nested Loop Join**:
+
+- Nested Loop Join은 가장 기본적인 조인 방식 중 하나입니다.
+- 이 방식에서는 하나의 테이블(외부 테이블)을 기준으로 반복문을 수행하고, 내부 테이블과 일치하는 행을 찾습니다.
+- 이 방식은 작은 데이터 집합에 대해서는 효과적이지만, 큰 데이터 집합에 대해서는 성능이 저하될 수 있습니다.
+
+**Cartesian Join**:
+
+- Cartesian Join은 두 테이블 간의 모든 가능한 조합을 반환하는 방식입니다.
+- 조인 조건을 명시하지 않거나 잘못 사용하면 발생할 수 있는 오류입니다.
+- 일반적으로 사용하지 않으며, 두 테이블 간의 조인 조건이 누락되지 않도록 주의해야 합니다.
+
+1. **Cross Join과 Natural Join은 Where 절에서 조건을 걸 수 없다.**
+    - **틀린 말입니다.** Cross Join과 Natural Join은 Where 절에서 조건을 걸 수 있습니다. Where 절을 사용하여 조인된 결과에 대한 추가적인 필터링을 수행할 수 있습니다.
+2. **Natural Join에서는 특정 Join 컬럼을 명시적으로 적을 수 없다.**
+    - **맞는 말입니다.** Natural Join은 테이블 간의 모든 동일한 컬럼 이름을 자동으로 결합합니다. 따라서 특정 Join 컬럼을 명시적으로 지정할 필요가 없습니다.
+3. **Cross Join은 Join에 참여하는 테이블의 Join Key가 없을 경우 발생한다.**
+    - **맞는 말입니다.** Cross Join은 특정 Join Key를 사용하지 않고 두 테이블 간의 모든 가능한 조합을 생성합니다.
+4. **Natural Join에서 Join Key는 컬럼명으로 결정된다.**
+    - **맞는 말입니다.** Natural Join은 컬럼 이름이 동일한 경우 해당 컬럼을 Join Key로 사용합니다.
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/3b690d16-4d36-43ac-a8fb-50be454e12de/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/68d91ffa-bcea-4974-b052-1f7bd73f650b/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/655d9da4-c817-42d5-a7df-083feab107db/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/70e69929-44b8-49ff-8e6e-55eb3bcc9d7f/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/08c3ce1a-8db8-45b4-b951-ed607faba4cf/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/e3892189-841e-4982-9341-c134d5cea086/Untitled.png)
+    
+    ### 파티셔닝
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/15edce7a-a4f7-430c-8a82-9d52e7b1ec2c/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/1c665ece-16cf-43e4-b2d4-3cb3f294b288/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/5bca6250-13b5-4ef8-ac6a-6338fa68778e/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/733d98c0-9cdc-45dc-9d16-210d9dce24b8/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/f6159b1c-0250-4e3b-acea-d160ceb68fec/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/d9964400-225e-47a8-8838-6d4bef6e778f/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/afb45223-9c05-4822-b98b-a90b090c09fa/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/9163bdde-c836-441b-a269-2eeccdb6c7f5/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/3055b0be-6196-4f6b-b7db-ec5186474993/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/17b78224-848b-487e-8b46-19633215b203/Untitled.png)
+    
+    null 에 무슨 짓을 해도 null 이다. 
+    
+    1) 비절차적 데이터 조작어(DML)는 사용자가 무슨 데이터를 원하는지만 명세한다.
+    
+    2) DML은 데이터베이스 사용자가 응용 프로그램이나 질의어를 통하여 저장된 데이터베이스를 실질적으로 접근하는데 사용되며 SELECT, INSERT, DELETE, UPDATE 등이 있다.
+    
+    3) DDL은 스키마, 도메인, 테이블, 뷰, 인덱스를 정의하거나 변경 또는 제거 할 때 사용되며 CREATE, ALTER, DROP, RENAME 등이 있다.
+    
+    4) 호스트 프로그램 속에 삽입되어 사용되는 DML 명령어들을 데이터 부속어(Data Sub Language)라고 한다.
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/ed0c715d-fd53-4fe3-8f49-c56d02775b37/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/a6d44d0a-02ab-4f14-81ac-213abc78b0bb/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/42cb8f6a-86db-4a37-974b-a0f41b43d320/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/aa8a57a9-3827-4761-b3ea-45f5a2430593/Untitled.png)
+    
+    1. RANK() OVER (PARTITION BY JOB ORDER BY 급여 DESC) JOB_RANK
+    #직업별 급여가 높은 순서대로 부여되고 동일한 순위는 동일한 값이 부여 된다.
+    2. SUM(급여) OVER (PARTITION BY MGR ORDER BY 급여 RANGE UNBOUNDED PRECEDING)
+    #RANGE는 논리적 주소에 의한 행 집합을 의미하고 MGR별 현재 행부터 파티션내 첫번째 행까지 급여의 합계를 계산한다.
+    3. AVG(급여) OVER (PARTITION BY MGR ORDER BY 날짜 ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING))
+    #각 MGR 별로 앞의 한건, 현재 행, 뒤의 한건 사이에서 급여의 평균을 계산한다.
+    4. COUNT(*) OVER (ORDER BY 급여) RANGE BETWEEN 10 PRECEDING AND 300 FOLLOWING)
+    #급여를 기준으로 현재 행에서의 급여의 10에서 300사이의 급여를 가지는 행의 수를 COUNT
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/5c55bffc-15bd-4348-83a6-f8b4e838c3b4/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/bb639c4e-26bc-4407-a513-7f7c625e79b4/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/ee3ab635-bca0-4429-b061-89b0bdfdbde2/Untitled.png)
+    
+    grant on to
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/adcd29f2-c00c-42c4-ab99-2d5eff49ee16/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/134195aa-7c8c-4ca6-9896-02e92958d91b/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/28ef0bdd-33a7-4fee-9e76-fe679aa068c5/f4b8f34b-3642-470a-bcac-6fd141bd840b/Untitled.png)
+    
+    sql 정렬은 null값을 가장 큰 걸로 함.
