@@ -1,9 +1,3 @@
-import { styled } from 'styled-components';
-
-const TradeMainPage = styled.div`
-  width: 100vw;
-  height: 100vh;
-  border: 2px solid red;
-`;
-
-export default TradeMainPage;
+version https://git-lfs.github.com/spec/v1
+oid sha256:ccdeaefb5a3cd3e00e8b35fe3c38b37602e1be97ed15cbefbcf2866cc515e01d
+size 7559
