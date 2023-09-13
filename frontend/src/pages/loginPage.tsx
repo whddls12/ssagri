@@ -1,21 +1,3 @@
-import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/navbar';
-import LoginPage from '../components/loginPage.styles';
-
-const loginPage = () => {
-  const navigate = useNavigate();
-
-  const goMain = () => {
-    navigate('/main');
-  };
-
-  return (
-    <LoginPage>
-      <Navbar></Navbar>
-      <p>로그인페이지</p>
-      <div onClick={goMain}>메인으로</div>
-    </LoginPage>
-  );
-};
-
-export default loginPage;
+version https://git-lfs.github.com/spec/v1
+oid sha256:15f30b6be38e638fb3ff0fb631591c922eb5669bdb904c7a5cdcfb0f8b21ceb0
+size 5526
