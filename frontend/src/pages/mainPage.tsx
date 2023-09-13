@@ -1,9 +1,14 @@
-const MainPage = () => {
+import Navbar from '../components/navbar';
+
+const mainPage = () => {
   return (
-    <div>
-      <p>메인페이지</p>
+    <div className='App'>
+      <Navbar></Navbar>
+      <header className='App-header'>
+        <p>메인페이지</p>
+      </header>
     </div>
   );
 };
 
-export default MainPage();
+export default mainPage;
