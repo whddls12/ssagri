@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6ccc2b2fc205ccdb1991f010c04955753fabec492017e95a555b955bc6513aee
-size 805
+import Navbar from '../components/navbar';
+import {
+  TradeListPageDiv,
+  TradeList
+} from '../components/tradeListPage.styles';
+
+const TradeMainPage = () => {
+  //   const navigate = useNavigate();
+  //   const goMain = () => {
+  //     navigate('/main');
+  //   };
+  return (
+    <TradeListPageDiv>
+      <Navbar></Navbar>
+      <TradeList></TradeList>
+    </TradeListPageDiv>
+  );
+};
+
+export default TradeMainPage;
