@@ -1,8 +1,8 @@
 import Navbar from '../components/navbar';
 import {
-  TradeMainPageDiv,
-  TradeMain
-} from '../components/tradeMainPage.styles';
+  TradeListPageDiv,
+  TradeList
+} from '../components/tradeListPage.styles';
 
 const TradeMainPage = () => {
   //   const navigate = useNavigate();
@@ -10,10 +10,10 @@ const TradeMainPage = () => {
   //     navigate('/main');
   //   };
   return (
-    <TradeMainPageDiv>
+    <TradeListPageDiv>
       <Navbar></Navbar>
-      <TradeMain></TradeMain>
-    </TradeMainPageDiv>
+      <TradeList></TradeList>
+    </TradeListPageDiv>
   );
 };
 
