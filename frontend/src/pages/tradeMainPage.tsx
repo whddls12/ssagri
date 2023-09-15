@@ -1,20 +1,7 @@
-import Navbar from '../components/navbar';
-import {
-  TradeMainPageDiv,
-  TradeMain
-} from '../components/tradeMainPage.styles';
+import { TradeMain } from '../components/tradeMainPage.styles';
 
 const TradeMainPage = () => {
-  //   const navigate = useNavigate();
-  //   const goMain = () => {
-  //     navigate('/main');
-  //   };
-  return (
-    <TradeMainPageDiv>
-      <Navbar></Navbar>
-      <TradeMain></TradeMain>
-    </TradeMainPageDiv>
-  );
+  return <TradeMain></TradeMain>;
 };
 
 export default TradeMainPage;
