@@ -1,17 +1,3 @@
-import { styled } from 'styled-components';
-
-const DetailFrame = styled.div`
-  width: 1920px;
-  height: 1080px;
-  margin-top: 7vh;
-  /* border: 2px solid black; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const TradeDetail = () => {
-  return <DetailFrame>상품 디테일</DetailFrame>;
-};
-
-export { TradeDetail };
+version https://git-lfs.github.com/spec/v1
+oid sha256:0785dae69af55251f4a9f4679fc76797c81796c74b1b965d61ced97b24cf3a46
+size 4579
