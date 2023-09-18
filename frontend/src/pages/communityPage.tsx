@@ -1,13 +1,9 @@
 import Navbar from '../components/navbar';
 import { LoginPage } from '../components/loginPage.styles';
+import CommunityMain from '../components/communityPage.styles';
 
 const communityPage = () => {
-  return (
-    <LoginPage>
-      <Navbar></Navbar>
-      <p>커뮤니티 페이지</p>
-    </LoginPage>
-  );
+  return <CommunityMain></CommunityMain>;
 };
 
 export default communityPage;
