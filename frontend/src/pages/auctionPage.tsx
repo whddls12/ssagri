@@ -1,5 +1,5 @@
 import Navbar from '../components/navbar';
-import LoginPage from '../components/loginPage.styles';
+import { LoginPage } from '../components/loginPage.styles';
 
 const auctionPage = () => {
   return (
