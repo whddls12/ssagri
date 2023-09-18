@@ -11,8 +11,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum CustomExceptionStatus {
 
+    //Register = 1xxx
+    REGISTER_NICKNAME_IS_DUPLICATE(-1000, "유저 닉네임이 중복됩니다."),
+    REGISTER_EMAIL_IS_DUPLICATE(-1001, "이메일이 중복됩니다.");
 
-    USER_NOT_ENOUGH_COIN(-5000, "현재 가지고 있는 골드가 부족합니다.");
 
     private final int code;
     private final String message;
