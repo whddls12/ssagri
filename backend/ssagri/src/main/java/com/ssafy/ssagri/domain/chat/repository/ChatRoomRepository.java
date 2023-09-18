@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.swing.text.html.Option;
 
-public interface ChatRoomRepository extends JpaRepository<ChatRoom, Long>,ChatRoomCustomRepository {
+public interface ChatRoomRepository extends JpaRepository<ChatRoom, Long>{
 }
