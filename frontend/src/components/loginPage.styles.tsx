@@ -1,9 +1,3 @@
-import { styled } from 'styled-components';
-
-const LoginPage = styled.div`
-  width: 100vw;
-  height: 100vh;
-  /* border: 2px solid red; */
-`;
-
-export default LoginPage;
+version https://git-lfs.github.com/spec/v1
+oid sha256:85c4c33376edcdee4f2507664651b673b391bbd71e22285d2c03421f5e3419c7
+size 11116
