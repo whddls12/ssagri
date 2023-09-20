@@ -1,9 +1,14 @@
-// @ts-ignore
-import Navbar from '../components/navbar';
-import { LoginPage } from '../components/loginPage.styles';
+import { AuctionPage } from '../components/auctionPage.styles';
+import { AuctionHeader } from '../components/header';
 
 const auctionPage = () => {
-  return <LoginPage></LoginPage>;
+  return (
+    <div>
+      <AuctionHeader></AuctionHeader>
+
+      <AuctionPage></AuctionPage>
+    </div>
+  );
 };
 
 export default auctionPage;
