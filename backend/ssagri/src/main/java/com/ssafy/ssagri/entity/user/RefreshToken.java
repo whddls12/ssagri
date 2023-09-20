@@ -4,11 +4,8 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
-
-
-
 /**
- * Redis Hash Value 저장을 위한 Entity
+ * Redis Entity
  */
 @RedisHash("RefreshToken")
 @Setter
