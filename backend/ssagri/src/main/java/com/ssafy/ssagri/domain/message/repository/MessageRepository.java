@@ -1,4 +1,4 @@
-package com.ssafy.ssagri.domain.chat.repository;
+package com.ssafy.ssagri.domain.message.repository;
 
 import com.ssafy.ssagri.entity.chat.Message;
 import org.springframework.data.mongodb.repository.MongoRepository;
