@@ -1,16 +1,3 @@
-package com.ssafy.ssagri.domain.chat.controller;
-
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RestController;
-
-@Controller
-public class ChatController {
-
-    @MessageMapping("/chat/room/1")
-    @SendTo("/sub/chat/1")
-    public String sendMessage(String message) {
-        return message;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a1c215e00bcc0e123bff94d4c37c290ea1773b7ec272dc5a7fdfc1278a1ea58c
+size 544
