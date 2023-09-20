@@ -1,3 +1,4 @@
+// @ts-ignore
 import Navbar from '../components/navbar';
 import { LoginPage } from '../components/loginPage.styles';
 
