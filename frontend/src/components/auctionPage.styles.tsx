@@ -8,10 +8,6 @@ const AuctionBody = styled.div`
   width: 100%;
   height: 1000px;
 `;
-const AuctionTitle = styled.div`
-  z-index: 2;
-  color: black;
-`;
 
 const AuctionPage = () => {
   return (
