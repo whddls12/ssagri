@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RestController;
 public class ChatRoomController {
     private final ChatRoomService chatRoomService;
 
-//    public
+
 }
