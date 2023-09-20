@@ -1,12 +1,3 @@
-package com.ssafy.ssagri.domain.user.service;
-
-import com.ssafy.ssagri.dto.user.UserLoginDTO;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-
-@Service
-public class UserLoginAndLogoutService {
-    public ResponseEntity<String> loginUser(UserLoginDTO userLoginDTO) {
-        return null;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:2e63d3d83ee0d8b2474ad2a19d62d7b3e73745018daf749d0b30fb5112118553
+size 4305
