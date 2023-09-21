@@ -1,17 +1,3 @@
-import { styled } from 'styled-components';
-
-const ChattingFrame = styled.div`
-  width: 1920px;
-  height: 1080px;
-  margin-top: 7vh;
-  /* border: 2px solid black; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Chatting = () => {
-  return <ChattingFrame>채팅 페이지</ChattingFrame>;
-};
-
-export { Chatting };
+version https://git-lfs.github.com/spec/v1
+oid sha256:93e169a09798fc7303b9c880cb0bbe2734f02b8e8faa6b90c472e412f48ddf56
+size 18685
