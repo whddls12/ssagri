@@ -1,23 +1,3 @@
-package com.ssafy.ssagri.entity.user;
-
-import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.redis.core.RedisHash;
-
-/**
- * Redis Entity
- */
-@RedisHash("RefreshToken")
-@Setter
-
-public class RefreshToken {
-    @Id
-    private Long userNo;
-
-    private String refreshToken;
-
-    public RefreshToken(Long userNo, String refreshToken) {
-        this.userNo = userNo;
-        this.refreshToken = refreshToken;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f51026e63384676d24c12b66ff4a44d63abbfcc4047c8aaa975a5b48552aba5a
+size 668
