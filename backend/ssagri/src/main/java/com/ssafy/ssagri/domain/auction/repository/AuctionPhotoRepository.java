@@ -1,7 +1,7 @@
 package com.ssafy.ssagri.domain.auction.repository;
 
 import com.ssafy.ssagri.entity.auction.AuctionProduct;
-import com.ssafy.ssagri.entity.auction.AuctionProductPhoto;
+import com.ssafy.ssagri.domain.auction.dto.AuctionProductPhoto;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
