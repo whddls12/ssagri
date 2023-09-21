@@ -1,11 +1,3 @@
-package com.ssafy.ssagri.domain.usedproduct.repository;
-
-import com.ssafy.ssagri.entity.usedproduct.ProductCategory;
-import com.ssafy.ssagri.entity.usedproduct.UsedProduct;
-import com.ssafy.ssagri.entity.user.Region;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
-public interface UsedProductCustomRepository {
-    Page<UsedProduct> selectAllUsedProduct(ProductCategory productCategory, Region region, Pageable pageable);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1417b04a1100d55b05241b94ce91d2e6dc4770c2e01b71c48b288fbdf41a2084
+size 553

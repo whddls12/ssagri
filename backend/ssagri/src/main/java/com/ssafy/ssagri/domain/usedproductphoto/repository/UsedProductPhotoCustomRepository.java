@@ -6,7 +6,7 @@ import com.ssafy.ssagri.domain.usedproductphoto.dto.UsedProductPhotoResponseDto;
 import java.util.List;
 
 public interface UsedProductPhotoCustomRepository {
-//    List<UsedProductPhotoResponseDto> selectSubPhotoByProductNo(Long usedProductNo);
+    List<UsedProductPhotoResponseDto> selectSubPhotoByProductNo(Long usedProductNo);
 
-//    UsedProductPhotoResponseDto selectMainPhotoByProductNo(Long usedProductNo);
+    UsedProductPhotoResponseDto selectMainPhotoByProductNo(Long usedProductNo);
 }
