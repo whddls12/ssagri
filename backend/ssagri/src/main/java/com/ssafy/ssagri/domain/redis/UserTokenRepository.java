@@ -1,4 +1,4 @@
-package com.ssafy.ssagri.domain.user.repository;
+package com.ssafy.ssagri.domain.redis;
 
 import com.ssafy.ssagri.entity.user.RefreshToken;
 import org.springframework.data.repository.CrudRepository;

@@ -1,8 +1,3 @@
-package com.ssafy.ssagri.domain.message.repository;
-
-import com.ssafy.ssagri.entity.chat.Message;
-import org.springframework.data.mongodb.repository.MongoRepository;
-
-public interface MessageRepository extends MongoRepository<Message,String> {
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:3bc1dc746e60bba1fc022d90560453f0e426470180412d65066673b45cdca51c
+size 546
