@@ -1,22 +1,3 @@
-package com.ssafy.ssagri.util.exception;
-
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-
-/**
- *        CODE : 카테고리 (4자리 정수)
- *        MESSAFE : 메세지
- */
-@Getter
-@RequiredArgsConstructor
-public enum CustomExceptionStatus {
-
-    //Register = 1xxx
-    REGISTER_NICKNAME_IS_DUPLICATE(-1000, "유저 닉네임이 중복됩니다."),
-    REGISTER_EMAIL_IS_DUPLICATE(-1001, "이메일이 중복됩니다.");
-
-
-    private final int code;
-    private final String message;
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:9df1fd11c730a548d8af55d65126e8c7a5a4cd831a5a396703f4a6c76e357915
+size 1490
