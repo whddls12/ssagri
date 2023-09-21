@@ -7,7 +7,7 @@ const DetailDiv = styled.div`
 `;
 
 const AuctionDetail = () => {
-  return <DetailDiv>세부</DetailDiv>;
+  return <DetailDiv></DetailDiv>;
 };
 
 export { AuctionDetail };
