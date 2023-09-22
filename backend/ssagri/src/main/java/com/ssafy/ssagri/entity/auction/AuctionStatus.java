@@ -2,5 +2,6 @@ package com.ssafy.ssagri.entity.auction;
 
 public enum AuctionStatus {
 
-    NOTSTART, START, END
+    진행중,예정,종료
 }
+
