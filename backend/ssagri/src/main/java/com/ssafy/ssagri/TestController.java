@@ -1,15 +1,3 @@
-package com.ssafy.ssagri;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-@RequestMapping("test")
-@RestController
-public class TestController {
-    @GetMapping
-    public String test() {
-        System.out.println("TEST");
-        return "TEST";
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:2b40f6e825ceb361ad5be3558360eadbd9bbc15560761b5ddbc9bec73ec8775a
+size 1565
