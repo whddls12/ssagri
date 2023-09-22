@@ -1,12 +1,14 @@
 package com.ssafy.ssagri.domain.auction.repository;
 
 import com.ssafy.ssagri.entity.auction.AuctionProduct;
-import com.ssafy.ssagri.domain.auction.dto.AuctionProductPhoto;
+import com.ssafy.ssagri.entity.auction.AuctionProductImage;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface AuctionPhotoRepository extends JpaRepository<AuctionProductPhoto, Long> {
+public interface AuctionPhotoRepository extends JpaRepository<AuctionProductImage, Long> {
 
-    List<AuctionProductPhoto> findByAuctionProduct(AuctionProduct no);
+    List<AuctionProductImage> findByAuctionProductNo(AuctionProduct auctionProductNo);
+
+
 }
