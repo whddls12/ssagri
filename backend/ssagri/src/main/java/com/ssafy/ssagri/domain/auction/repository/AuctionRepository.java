@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AuctionRepository extends JpaRepository<AuctionProduct, Long>, AuctionCustomRepository {
 
-
+AuctionProduct findByNo(Long no);
 
 
 }
