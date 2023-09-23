@@ -1,6 +1,8 @@
 package com.ssafy.ssagri.dto.etc;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
