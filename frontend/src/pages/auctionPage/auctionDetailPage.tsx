@@ -1,4 +1,4 @@
-import { AuctionDetail } from '../components/auctionDetailPage.styles';
+import { AuctionDetail } from '../../components/auctionStyle/auctionDetailPage.styles';
 
 const AuctionDetailPage = () => {
   return <AuctionDetail></AuctionDetail>;
