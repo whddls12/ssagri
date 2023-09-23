@@ -1,4 +1,4 @@
-import { AuctionCreate } from '../components/auctionCreatePage.styles';
+import { AuctionCreate } from '../../components/auctionStyle/auctionCreatePage.styles';
 
 const AuctionCreatePage = () => {
   return <AuctionCreate></AuctionCreate>;
