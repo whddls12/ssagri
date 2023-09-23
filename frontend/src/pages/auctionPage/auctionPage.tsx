@@ -1,5 +1,5 @@
-import { AuctionPage } from '../components/auctionPage.styles';
-import { AuctionHeader } from '../components/header';
+import { AuctionPage } from '../../components/auctionStyle/auctionPage.styles';
+import { AuctionHeader } from '../../components/header';
 
 const auctionPage = () => {
   return (
