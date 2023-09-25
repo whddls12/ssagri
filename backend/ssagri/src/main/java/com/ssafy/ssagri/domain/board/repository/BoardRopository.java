@@ -11,4 +11,6 @@ public interface BoardRopository extends JpaRepository<Board, Long> {
 
 
     List<Board> findAllByOrderByTitleAsc();
+
+    Board findByNo(Long no);
 }
