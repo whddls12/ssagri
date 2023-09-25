@@ -1,16 +1,3 @@
-package com.ssafy.ssagri.domain.board.repository;
-
-import com.ssafy.ssagri.entity.board.Board;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
-
-public interface BoardRopository extends JpaRepository<Board, Long> {
-
-    List<Board> findAllByOrderByBoardClickDesc();
-
-
-    List<Board> findAllByOrderByTitleAsc();
-
-    Board findByNo(Long no);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:af2361757c46a9112bd326ad285a517d266c5f9a9fe5249b284d80f307b22089
+size 594
