@@ -6,5 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BoardListRepository extends JpaRepository<BoardList, Long> {
-    Page<BoardList> findAll(Pageable pageable);
+    Page<BoardList> findAllByOrderByCreateDateAsc(Pageable pageable);
+
+
 }
