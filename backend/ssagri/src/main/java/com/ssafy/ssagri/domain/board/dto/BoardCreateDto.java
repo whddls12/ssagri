@@ -14,10 +14,10 @@ public class BoardCreateDto {
     private String title;
 
 //    // 게시판 설명
-//    private String comment;
+    private String comment;
 
     // 게시판 색상
-    private String color;
+//    private String color;
 
     // 게시판 익명 여부
     private String who;
