@@ -1,5 +1,5 @@
 package com.ssafy.ssagri.entity.usedproduct;
 
 public enum ProductCategory {
-    READY
+    MONITER, KEYBOARD, MOUSE, LIFE, ETC
 }
