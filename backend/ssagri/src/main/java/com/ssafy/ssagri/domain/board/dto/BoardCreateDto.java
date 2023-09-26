@@ -1,24 +1,3 @@
-package com.ssafy.ssagri.domain.board.dto;
-
-import lombok.Builder;
-import lombok.Getter;
-
-@Getter
-@Builder
-public class BoardCreateDto {
-
-    // 게시판 생성자 no
-    private Long no;
-
-    // 게시판 제목
-    private String title;
-
-//    // 게시판 설명
-    private String comment;
-
-    // 게시판 색상
-//    private String color;
-
-    // 게시판 익명 여부
-    private String who;
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a170bffe3c69ed625e7e4f905a511581eb7c72445d688da59ec30301118db09a
+size 701
