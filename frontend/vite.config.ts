@@ -1,16 +1,3 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()]
-  // server: {
-  //   proxy: {
-  //     '/api': {
-  //       target: 'https://j9b209.p.ssafy.io',
-  //       changeOrigin: true
-  //       // rewrite: (path) => path.replace(/^\/api/, '')
-  //     }
-  //   }
-  // }
-});
+version https://git-lfs.github.com/spec/v1
+oid sha256:494057f88b53e089651a9ef2eb1ab62858f42fd880c414e475dd43bbd0ce39f1
+size 574
