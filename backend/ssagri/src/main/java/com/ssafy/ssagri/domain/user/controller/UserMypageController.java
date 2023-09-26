@@ -1,15 +1,3 @@
-package com.ssafy.ssagri.domain.user.controller;
-
-import io.swagger.annotations.Api;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-@Slf4j
-@RequiredArgsConstructor
-@Api
-public class UserMypageController {
-
-    //비밀번호 변경
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:43316a35d8c4dac57d0c83425a839c327f85a4e8d9df690df8c0e459431f63c1
+size 1520
