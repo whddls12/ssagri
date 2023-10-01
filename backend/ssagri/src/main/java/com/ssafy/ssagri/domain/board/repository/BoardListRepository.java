@@ -1,19 +1,3 @@
-package com.ssafy.ssagri.domain.board.repository;
-
-import com.ssafy.ssagri.entity.board.Board;
-import com.ssafy.ssagri.entity.board.BoardList;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
-
-public interface BoardListRepository extends JpaRepository<BoardList, Long> {
-    Page<BoardList> findAllByOrderByCreateDateAsc(Pageable pageable);
-
-    BoardList findByNo(Long no);
-
-
-
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6916868f918947faaefd0b55eb59dd370465f0e8bceb6f52a4a8ee4a0b4c5a5a
+size 531

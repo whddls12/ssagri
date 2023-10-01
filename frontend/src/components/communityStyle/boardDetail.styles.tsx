@@ -1,24 +1,3 @@
-import { styled } from 'styled-components';
-
-const DetailDiv = styled.div`
-  width: 100%;
-  height: 1000px;
-
-  /* border: 3px solid black; */
-`;
-const TopTitle = styled.div`
-  width: 100%;
-  height: 200px;
-  background-color: #f2ead3;
-`;
-
-const BoardDetailMain = () => {
-  return (
-    <DetailDiv>
-      <TopTitle>질문게시판</TopTitle>
-      디테일 페이지
-    </DetailDiv>
-  );
-};
-
-export { BoardDetailMain };
+version https://git-lfs.github.com/spec/v1
+oid sha256:b2c9657773162361380290129accebdd7a4bd6d8e1f47bb51ad65fb8d6ba1ed9
+size 3527
