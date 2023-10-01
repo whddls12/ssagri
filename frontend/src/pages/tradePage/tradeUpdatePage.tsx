@@ -1,4 +1,4 @@
-import { TradeUpdate } from '../components/tradeCreate.styles';
+import { TradeUpdate } from '../../components/tradeStyle/tradeCreate.styles';
 
 const TradeUpdatePage = () => {
   return <TradeUpdate></TradeUpdate>;
