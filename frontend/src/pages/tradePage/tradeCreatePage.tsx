@@ -1,4 +1,4 @@
-import { TradeCreate } from '../components/tradeCreate.styles';
+import { TradeCreate } from '../../components/tradeStyle/tradeCreate.styles';
 
 const TradeCreatePage = () => {
   return <TradeCreate></TradeCreate>;
