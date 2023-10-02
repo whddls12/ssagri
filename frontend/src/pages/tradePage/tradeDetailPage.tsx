@@ -1,4 +1,4 @@
-import { TradeDetail } from '../components/tradeDetailPage.styles';
+import { TradeDetail } from '../../components/tradeStyle/tradeDetailPage.styles';
 
 const TradeDetailPage = () => {
   return <TradeDetail></TradeDetail>;

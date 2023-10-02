@@ -1,4 +1,4 @@
-import { TradeList } from '../components/tradeListPage.styles';
+import { TradeList } from '../../components/tradeStyle/tradeListPage.styles';
 
 const TradeMainPage = () => {
   return <TradeList></TradeList>;
