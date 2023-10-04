@@ -1,12 +1,3 @@
-package com.ssafy.ssagri.domain.auction.repository;
-
-import com.ssafy.ssagri.entity.auction.AuctionProduct;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-
-public interface AuctionRepository extends JpaRepository<AuctionProduct, Long>, AuctionCustomRepository {
-
-AuctionProduct findByNo(Long no);
-
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:7180f19ca7f0ccddb28ff702278f21cec892fef86913cf383afb2c6d174682c2
+size 713
