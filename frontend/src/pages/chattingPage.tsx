@@ -1,7 +1,7 @@
-import { Chatting } from '../components/chattingPage.styles';
+import { ChattingDiv } from '../components/chattingPage.styles';
 
 const ChattingPage = () => {
-  return <Chatting></Chatting>;
+  return <ChattingDiv></ChattingDiv>;
 };
 
 export default ChattingPage;

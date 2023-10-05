@@ -7,4 +7,5 @@ import org.springframework.data.jpa.repository.Query;
 public interface RandomFirstNameRepository extends JpaRepository<RandomNicknameFirst, Long> {
     @Query(value = "SELECT firstName FROM random_nickname_first ORDER BY RAND() LIMIT 1", nativeQuery = true)
     String getRandomName();
+
 }
