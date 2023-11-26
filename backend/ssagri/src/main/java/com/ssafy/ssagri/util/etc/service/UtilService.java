@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:07fe6748614a215d37b0b4ccbe41507b3e4a8a9aeb3a48350893143e1de0a3ec
-size 714
+package com.ssafy.ssagri.util.etc.service;
+
+import com.ssafy.ssagri.util.exception.CustomException;
+import com.ssafy.ssagri.util.jwt.JwtUtil;
+import io.swagger.v3.oas.annotations.servers.Server;
+import org.springframework.stereotype.Service;
+
+import javax.servlet.http.HttpServletRequest;
+
+import static com.ssafy.ssagri.util.exception.CustomExceptionStatus.UTIL_ERR;
+
+@Service
+public class UtilService {
+    public Long getUserNo(HttpServletRequest request) throws Exception {
+        try {
+            String token = request.getHeader("Authorization").split(" ")[1];
+            return JwtUtil.getUserNo(token);
+        } catch (Exception e) {
+            throw new CustomException(UTIL_ERR);
+        }
+    }
+
+}

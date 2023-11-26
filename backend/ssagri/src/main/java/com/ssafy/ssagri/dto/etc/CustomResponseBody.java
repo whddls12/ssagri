@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5a055d2ec158809a7a0b756baf31069caddb98c705c24eb580f024c48029b983
-size 539
+package com.ssafy.ssagri.dto.etc;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
+@Data
+@EqualsAndHashCode(callSuper=false)
+@Getter
+@Setter
+public class CustomResponseBody<T> extends BaseResponseBody {
+    private int resultCode;
+    private String resultMsg;
+    private Object result;
+
+    public CustomResponseBody() {
+        this.result = new Object();
+    }
+
+    public CustomResponseBody(String resultMsg) {
+        this.resultCode = 0;
+        this.resultMsg = resultMsg;
+    }
+}

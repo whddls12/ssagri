@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2fb60fbcd0775d4635608691fc28c7fed1a938d72795974207f434f4ae7b96ee
-size 634
+package com.ssafy.ssagri.domain.board.dto;
+
+import com.ssafy.ssagri.entity.user.User;
+import lombok.Builder;
+import lombok.Getter;
+import org.hibernate.annotations.ColumnDefault;
+
+import javax.persistence.*;
+
+@Getter
+@Builder
+public class BoardDto {
+
+    // 게시판 no
+    private Long no;
+
+    // 게시판 생성자 no
+    private String user;
+
+    // 게시판 제목
+    private String title;
+
+    // 조회수
+    private int boardClick;
+
+    // 게시판 공개 여부
+    private String showName;
+
+    // 게시판 삭제 여부
+    private boolean allowDelete;
+
+    // 게시판 생명 주기
+    private Long boardLife;
+
+}

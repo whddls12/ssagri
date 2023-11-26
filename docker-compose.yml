@@ -1,3 +1,94 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1fb65d0f0b7c9bf58ace5c85afe9f324958ca504fcc22096b17fdd8f147c18c6
-size 3553
+version: '3'
+
+# 컨테이너들
+services:
+    # nginx 라는 service
+    nginx:
+        # 사용되는 이미지
+        image: nginx:latest
+        # 만들어질 컨테이너명
+        container_name: nginx-container
+        # 도커 네트워크
+        networks:
+            - special-network
+        # 환경
+        environment:
+            - TZ=Asia/Seoul
+        # 의존하고 있는 서비스(컨테이너)
+        depends_on:
+            - spring
+            - react
+        # 재시작하는 경우
+        restart: unless-stopped
+        # 컨테이너가 만들어질 때, 가져올 데이터들.
+        # jenkins를 통해 실행되므로 var/lib/jenkins 하위 디렉토리에서 데이터를 가져온다.
+        volumes:
+            #- /infra/nginx:/etc/nginx/conf.d
+            - /data/nginx:/etc/nginx/conf.d
+            - /data/certbot/conf:/etc/letsencrypt
+            - /data/certbot/www:/var/www/certbot
+        # 외부에 공개할 포트
+        ports:
+            - "80:80"
+            - "443:443"
+        # 컨테이너가 만들어진 후에 실행할 명령어
+        command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    # certbot 이라는 service
+    certbot:
+        # 사용되는 이미지
+        image: certbot/certbot
+        # 만들어질 컨테이너명
+        container_name: certbot-container
+        # 도커 네트워크
+        networks:
+            - special-network
+        # 재시작하는경우
+        restart: unless-stopped
+        # 컨테이너가 만들어질 때, 가져올 데이터들
+        # jenkins를 통해 실행되므로 var/lib/jenkins 하위 디렉토리에서 데이터를 가져온다.
+        volumes:
+            - /data/certbot/conf:/etc/letsencrypt
+            - /data/certbot/www:/var/www/certbot
+        # 컨테이너가 만들어진 후에 강제로 실행할 명령어
+        entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    # spring 이라는 service
+    spring:
+        # 사용되는 이미지
+        image: ssagri-backend
+        # 만들어질 컨테이너명
+        container_name: spring-container
+        # 도커 네트워크
+        networks:
+            - special-network
+        # 재시작하는경우
+        restart: always
+        # 컨테이너 내부에서 도커 네트워크에게 열어주는 포트
+        expose:
+            - "5000"
+        #ports: 외부에서 host로 누구나 접근할 수 있는 포트
+        # 컨테이너가 만들어질 때, 가져올 데이터들
+        # jenkins를 통해 실행되므로 var/lib/jenkins 하위 디렉토리에서 데이터를 가져온다.
+        #volumes:
+            #- ~/config/spring:/Develop/BackEnd/joinit/src/main/resources:ro
+
+    react:
+        # 사용되는 이미지
+        image: ssagri-frontend
+        # 만들어질 컨테이너명
+        container_name: react-container
+        # 도커 네트워크
+        networks:
+            - special-network
+        # 재시작하는경우
+        restart: always
+        # 컨테이너 내부에서 도커 네트워크에게 열어주는 포트
+        expose:
+            - "5173"
+        # 컨테이너가 만들어질 때, 가져올 데이터들
+        # jenkins를 통해 실행되므로 var/lib/jenkins 하위 디렉토리에서 데이터를 가져온다.
+        volumes:
+            - /data/react-nginx:/etc/nginx/conf.d
+# 도커 네트워크
+networks:
+    # 도커 네트워크 이름
+    special-network:

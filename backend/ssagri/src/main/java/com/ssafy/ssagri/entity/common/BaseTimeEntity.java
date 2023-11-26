@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:11de988eb2b6ec53a3520a78281ff15b16c41f31901650c1de8c43fd67931457
-size 826
+package com.ssafy.ssagri.entity.common;
+
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.Column;
+import javax.persistence.EntityListeners;
+import javax.persistence.MappedSuperclass;
+import java.time.LocalDateTime;
+
+@EntityListeners(AuditingEntityListener.class)
+@MappedSuperclass
+@Getter
+@Setter
+public abstract class BaseTimeEntity {
+
+    @CreatedDate
+    @Column(name ="create_date",updatable = false)
+    private LocalDateTime createDate;
+
+    @LastModifiedDate
+    @Column(name = "update_date")
+    private LocalDateTime updateDate;
+
+    @Column(name = "delete_date")
+    private LocalDateTime deleteDate;
+}

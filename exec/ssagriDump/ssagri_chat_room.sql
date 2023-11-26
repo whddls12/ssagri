@@ -1,3 +1,72 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f719b65868bcabfb0ef7eb42eab1abf82be8a1c38af1da2cd9998a0160ccd72b
-size 4485
+CREATE DATABASE  IF NOT EXISTS `ssagri` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `ssagri`;
+-- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+--
+-- Host: ssagri2.cvcrhp5wekli.ap-northeast-2.rds.amazonaws.com    Database: ssagri
+-- ------------------------------------------------------
+-- Server version	8.0.33
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '';
+
+--
+-- Table structure for table `chat_room`
+--
+
+DROP TABLE IF EXISTS `chat_room`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `chat_room` (
+  `chat_room_no` bigint NOT NULL AUTO_INCREMENT,
+  `create_date` datetime(6) DEFAULT NULL,
+  `delete_date` datetime(6) DEFAULT NULL,
+  `update_date` datetime(6) DEFAULT NULL,
+  `chat_update_date` datetime(6) DEFAULT NULL,
+  `chat_room_code` varchar(255) NOT NULL,
+  `chat_room_userA_no` bigint NOT NULL,
+  `chat_room_userB_no` bigint NOT NULL,
+  PRIMARY KEY (`chat_room_no`),
+  KEY `FKawibj6iwy095nbwfwkfqxruc1` (`chat_room_userA_no`),
+  KEY `FK109yg9dgrwqsyvgnavh4dexhv` (`chat_room_userB_no`),
+  CONSTRAINT `FK109yg9dgrwqsyvgnavh4dexhv` FOREIGN KEY (`chat_room_userB_no`) REFERENCES `users` (`user_no`),
+  CONSTRAINT `FKawibj6iwy095nbwfwkfqxruc1` FOREIGN KEY (`chat_room_userA_no`) REFERENCES `users` (`user_no`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `chat_room`
+--
+
+LOCK TABLES `chat_room` WRITE;
+/*!40000 ALTER TABLE `chat_room` DISABLE KEYS */;
+INSERT INTO `chat_room` VALUES (1,'2023-10-05 23:11:37.612688',NULL,'2023-10-05 23:11:37.612688',NULL,'f5aa3279-d328-43e4-b290-ac2056ae9ed3',4,4),(2,'2023-10-06 00:06:56.962766',NULL,'2023-10-06 00:06:56.962766',NULL,'d7be0bcd-8ceb-4d44-81d9-3b58d63d32aa',3,3),(3,'2023-10-06 00:14:40.760680',NULL,'2023-10-06 00:14:40.760680',NULL,'af5ba9d7-7db4-47e8-9f84-5f47e29684b2',3,2),(4,'2023-10-06 00:47:14.124640',NULL,'2023-10-06 00:47:14.124640',NULL,'32f4515a-f66c-4bf3-889c-76c06e66f8a5',2,1),(5,'2023-10-06 00:47:38.479729',NULL,'2023-10-06 00:47:38.479729',NULL,'fdfa512f-8cf2-4915-98be-0b111ed990f1',2,2),(6,'2023-10-06 00:48:14.489841',NULL,'2023-10-06 00:48:14.489841',NULL,'bfdbd26e-e585-4ef2-b185-7108fc13e9eb',3,1),(7,'2023-10-06 00:52:18.505191',NULL,'2023-10-06 00:52:18.505191',NULL,'6bdefa24-e4de-41c5-8028-7271cddad36b',3,7),(8,'2023-10-06 01:14:09.351752',NULL,'2023-10-06 01:14:09.351752',NULL,'7bfbf4e6-30df-4a22-9bea-3c7b3d420ec4',8,8),(9,'2023-10-06 01:18:12.960194',NULL,'2023-10-06 01:18:12.960194',NULL,'2ed225c7-b6b8-4a9d-a22d-d4ba521aace9',4,6),(10,'2023-10-06 03:02:36.405436',NULL,'2023-10-06 03:02:36.405436',NULL,'92f68d83-39a8-4d70-8a9e-07c1e6da9c77',9,9),(11,'2023-10-06 03:03:05.974242',NULL,'2023-10-06 03:03:05.974242',NULL,'c369ab2f-f7b3-44a2-89c7-69a48122f61a',9,6),(12,'2023-10-06 03:06:12.235509',NULL,'2023-10-06 03:06:12.235509',NULL,'e9079268-03d7-43cc-92ae-ca4dd8939969',9,3),(13,'2023-10-06 03:31:01.488273',NULL,'2023-10-06 03:31:01.488273',NULL,'c58eb525-39a8-4083-a70a-8d82ca2fdca9',4,3);
+/*!40000 ALTER TABLE `chat_room` ENABLE KEYS */;
+UNLOCK TABLES;
+SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-10-06  3:33:06

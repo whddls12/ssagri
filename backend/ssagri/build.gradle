@@ -1,3 +1,117 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:deee372210ea275acc204f0bc01883637a72e5d14c380594d706e6e4cdd1a7d7
-size 3338
+// (1) queryDSL 추가
+buildscript {
+	ext {
+		queryDslVersion = "5.0.0"
+	}
+}
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.15'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+
+	//querydsl 추가
+	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+}
+
+group = 'com.ssafy'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '11'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-security' //security
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'org.springframework:spring-context' // @Value
+	implementation 'org.springframework.boot:spring-boot-starter-mail' //mail
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis' //Redis
+	implementation 'org.springframework.boot:spring-boot-configuration-processor' //annotation-processer
+
+//	//aws
+//	implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+//	implementation "com.amazonaws:aws-java-sdk-s3:1.12.395"
+
+	// AWS
+	implementation 'io.awspring.cloud:spring-cloud-starter-aws:2.3.1'
+	implementation 'software.amazon.awssdk:s3:2.17.65'
+
+
+
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.projectreactor:reactor-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+
+
+
+
+	// (3) queryDSL 추가
+	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
+	annotationProcessor "com.querydsl:querydsl-apt:${queryDslVersion}"
+
+
+	//jwt setting
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+	implementation 'io.jsonwebtoken:jjwt-impl:0.11.2'
+	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.2' // (선택 사항) JSON 직렬화를 위한 Jackson 의존성
+
+
+	//Swagger
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+
+
+	//	websocket
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+	//	MongoDB
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+
+	// S3
+	implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE' //AWS Cloud와 통합을 쉽게 해주는 Spring Cloud AWS 모듈의 스타터 패키지. 내부적으로는 AWS SDK를 포함.
+	implementation 'net.lingala.zip4j:zip4j:2.6.1' // zip 압축 다운로드
+	implementation 'org.apache.commons:commons-text:1.9' // 랜덤 문자열 생성
+
+	// Json
+	// https://mvnrepository.com/artifact/org.json/json
+	implementation group: 'org.json', name: 'json', version: '20230227'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+// (4) queryDSL 추가 : QueryDSL 빌드 옵션
+def querydslDir = "$buildDir/generated/querydsl"
+
+querydsl {
+	jpa = true
+	querydslSourcesDir = querydslDir
+}
+sourceSets {
+	main.java.srcDir querydslDir
+}
+configurations {
+	querydsl.extendsFrom compileClasspath
+}
+compileQuerydsl {
+	options.annotationProcessorPath = configurations.querydsl
+}
+// 여기까지

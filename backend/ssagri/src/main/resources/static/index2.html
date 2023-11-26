@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:eb6da667567df453c5a58aaf7a21b60701203525adfb05e7915e2e5dfa841131
-size 754
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var urlEndPoint = "http://localhost:5000/api/notification/subscribe/1";
+    var eventSource = new EventSource(urlEndPoint);
+    eventSource.addEventListener("sse-emitter-created", function(event) {
+        console.log(event);
+    });
+
+
+    eventSource.addEventListener("new bid", function(e) {
+        console.log(e.data);
+        var parsedata = JSON.parse(e.data);
+        console.log(parsedata);
+    });
+</script>
+</body>
+</html>

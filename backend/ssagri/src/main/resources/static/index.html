@@ -1,3 +1,64 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:43a0e6fc155b4eaf3943e79f541a20a6b48572157688cb2e966dd3fa12d04083
-size 2289
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Chat</title>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<div id="chat">
+    <div id="messages"></div>
+    <input type="number" id="chatRoomNo" placeholder="Chat Room No">
+    <input type="number" id="senderNo" placeholder="Sender No">
+    <input type="number" id="receiverNo" placeholder="Receiver No">
+    <textarea id="messageInput" placeholder="Message"></textarea>
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+    
+
+    let socket = new SockJS('http://localhost:5000/api/ws');
+    let stompClient = Stomp.over(socket);
+
+    const headers = {
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyTm8iOjEsInRva2VuVHlwZSI6IkFjY2VzcyIsImlhdCI6MTY5NTc3OTMyNSwiZXhwIjoxNjk1NzgxMTI1fQ.xL0RK2H8YGrHLrS5w3mUIsEXdmZJXhW0KBV6F7DU0Dg'
+    };
+
+    stompClient.connect(headers, function(frame) {
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/sub/chat/room/1', function(messageOutput) {
+            showMessageOutput(JSON.parse(messageOutput.body));
+        });
+    });
+
+
+    function sendMessage() {
+        let chatRoomNo = document.getElementById('chatRoomNo').value;
+        let senderNo = document.getElementById('senderNo').value;
+        let receiverNo = document.getElementById('receiverNo').value;
+        let content = document.getElementById('messageInput').value;
+
+        let messageRequest = {
+            chatRoomNo: chatRoomNo,
+            senderNo: senderNo,
+            receiverNo: receiverNo,
+            content: content
+        };
+
+        // "/chat/room/{roomId}" 이 URL 구조에 따라 메시지를 보냅니다.
+        stompClient.send("/pub/chat/room/1" , {}, JSON.stringify(messageRequest));
+        document.getElementById('messageInput').value = '';
+    }
+
+    function showMessageOutput(messageOutput) {
+        let messages = document.getElementById('messages');
+        let messageElement = document.createElement('div');
+        messageElement.innerText = messageOutput.content;
+        messages.appendChild(messageElement);
+    }
+</script>
+
+</body>
+</html>

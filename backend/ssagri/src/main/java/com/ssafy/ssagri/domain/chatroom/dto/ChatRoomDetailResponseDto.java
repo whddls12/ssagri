@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:823d5456929f503f6a582fa3b51b225ca1286bc05ed645f2d29df594c1cfd9a3
-size 942
+package com.ssafy.ssagri.domain.chatroom.dto;
+
+import com.ssafy.ssagri.domain.message.dto.MessageResponseDto;
+
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+
+@Data
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class ChatRoomDetailResponseDto {
+    private Long chatRoomNo;
+    private Long userANo;
+    private Long userBNo;
+    private String chatRoomCode;
+    private Page<MessageResponseDto> messageResponseList;
+
+    @Builder
+    public ChatRoomDetailResponseDto(Long chatRoomNo, Long userANo, Long userBNo, String chatRoomCode, Page<MessageResponseDto> messageResponseList) {
+        this.chatRoomNo = chatRoomNo;
+        this.userANo = userANo;
+        this.userBNo = userBNo;
+        this.chatRoomCode = chatRoomCode;
+        this.messageResponseList = messageResponseList;
+    }
+}

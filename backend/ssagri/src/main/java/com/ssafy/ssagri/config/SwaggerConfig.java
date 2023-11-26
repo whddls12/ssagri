@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3df102ce7a5e2f8cd7072bc4e116f3544bd7a864f071e81b3ed35ecf7cea8243
-size 1047
+package com.ssafy.ssagri.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.spi.DocumentationType;
+
+@Configuration
+public class SwaggerConfig {
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.any())
+                .build()
+                .apiInfo(apiInfo());
+    }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("Swagger 문서 제목")
+                .description("Swagger 문서 설명")
+                .version("1.0")
+                .build();
+    }
+}

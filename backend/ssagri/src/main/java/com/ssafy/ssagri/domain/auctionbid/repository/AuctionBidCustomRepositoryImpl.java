@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9281b6215de53c6dc87d57e063b01c8b874acfbb37ce4cca0ac7fb71fd0f5667
-size 989
+package com.ssafy.ssagri.domain.auctionbid.repository;
+
+import com.querydsl.jpa.impl.JPAQueryFactory;
+import com.ssafy.ssagri.entity.auction.AuctionBid;
+import com.ssafy.ssagri.entity.auction.QAuctionBid;
+
+import javax.persistence.EntityManager;
+import java.util.List;
+
+public class AuctionBidCustomRepositoryImpl implements AuctionBidCustomRepository{
+
+    private final JPAQueryFactory jpaQueryFactory;
+    QAuctionBid auctionBid = QAuctionBid.auctionBid;
+
+    public AuctionBidCustomRepositoryImpl(EntityManager entityManager) {
+        this.jpaQueryFactory = new JPAQueryFactory(entityManager);
+    }
+
+    @Override
+    public List<AuctionBid> selectAuctionBidByAuctionProduct(Long auctionProductNo) {
+        List<AuctionBid> findAuctionBidList = jpaQueryFactory.selectFrom(auctionBid)
+                .where(auctionBid.auctionProduct.no.eq(auctionProductNo))
+                .orderBy(auctionBid.price.desc(),auctionBid.no.desc()).fetch();
+        return findAuctionBidList;
+
+    }
+}

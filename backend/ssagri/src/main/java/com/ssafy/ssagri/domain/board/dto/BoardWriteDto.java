@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:aa46e9b4664651e6eca3d69a35a4946136bbc0722d31f55a59d839033af43e66
-size 639
+package com.ssafy.ssagri.domain.board.dto;
+
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class BoardWriteDto {
+
+    Long boardNo;
+
+    Long userNo;
+
+    String title;
+
+    String contents;
+
+    Boolean allowComment;
+
+
+    @Builder
+    public BoardWriteDto(Long boardNo, Long userNo, String title, String contents, Boolean allowComment) {
+        this.boardNo = boardNo;
+        this.userNo = userNo;
+        this.title = title;
+        this.contents = contents;
+        this.allowComment = allowComment;
+    }
+}

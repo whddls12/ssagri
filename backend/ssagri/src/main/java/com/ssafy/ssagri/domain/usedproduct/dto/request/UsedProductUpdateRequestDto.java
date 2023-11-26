@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:296b9ffb8e5cb6d4f69b663a0d9185597e453bf98d3bdf8247665ec9a1cb4b63
-size 514
+package com.ssafy.ssagri.domain.usedproduct.dto.request;
+
+
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class UsedProductUpdateRequestDto {
+    //아직 유보
+//    private Long userNo;
+//    private ProductCategory productCategory;
+//    private String title;
+//    private String content;
+//    private int price;
+//    private SaleStatus saleStatus;
+//
+//    List<UsedProductPhotoRequest> photoRequestList;
+
+}

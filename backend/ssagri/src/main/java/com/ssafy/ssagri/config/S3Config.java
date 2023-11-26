@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7a2284926440c7c43636c8b83dd2ef60a5651b48640c58155cbf1af12e383235
-size 1230
+package com.ssafy.ssagri.config;
+
+
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+
+@Configuration
+@PropertySource("classpath:application.properties")
+public class S3Config {
+    @Value("${cloud.aws.credentials.accesskey}")
+    private String accessKey;
+
+    @Value("${cloud.aws.credentials.secretkey}")
+    private String secretKey;
+
+    @Value("${cloud.aws.region.static}")
+    private String region;
+
+    @Bean
+    public AmazonS3 setS3Client() {
+
+//        AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
+
+        BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials(accessKey, secretKey);
+
+        return AmazonS3ClientBuilder.standard()
+                .withCredentials(new AWSStaticCredentialsProvider(basicAWSCredentials))
+                .withRegion(region)
+                .build();
+    }
+}
